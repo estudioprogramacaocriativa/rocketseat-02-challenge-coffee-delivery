@@ -1,16 +1,15 @@
-import {Header} from "./components/header";
-import {Hero} from "./components/hero";
-import {Products} from "./components/products";
-
-import './index.css'
 import {CartContextProvider} from "./contexts/CartContext.tsx";
+import {Router} from "./Router.tsx";
+import {BrowserRouter} from "react-router-dom";
+
+import './global-styles.css'
 
 function App() {
     return (
         <CartContextProvider>
-            <Header />
-            <Hero />
-            <Products />
+            <BrowserRouter>
+                <Router />
+            </BrowserRouter>
         </CartContextProvider>
     )
 }
