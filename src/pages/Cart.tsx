@@ -3,6 +3,7 @@ import Dollar from '../assets/dolar.svg'
 import CreditCard from '../assets/credit-card.svg'
 import Bank from '../assets/bank.svg'
 import Money from '../assets/money.svg'
+import {CartSidebar} from "../components/cart/sidebar";
 
 export function Cart() {
     return (
@@ -104,11 +105,7 @@ export function Cart() {
                     </div>
                 </article>
                 <article className="col-span-2">
-                    <h3 className="text-base-subtitle font-bold">Cafés selecionados</h3>
-
-                    <div className="rounded-tr-2xl rounded-bl-2xl bg-base-card p-10 mt-4">
-
-                    </div>
+                    <CartSidebar />
                 </article>
             </div>
         </div>
