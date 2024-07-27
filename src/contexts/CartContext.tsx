@@ -44,7 +44,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         const existingProduct = cart.filter(itemCart => itemCart.id === item.id)
 
         if (existingProduct.length === 0) {
-            item.quantity = 0;
+            item.quantity = item.quantity + 1 === 1 ? 1 : 0
 
             addItemToCart(item)
 
