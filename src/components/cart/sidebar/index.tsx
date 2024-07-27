@@ -2,6 +2,7 @@ import {useContext} from "react";
 import {CartContext} from "../../../contexts/CartContext.tsx";
 import EmptyCart from '../../../assets/empty-cart.png'
 import {NavLink} from "react-router-dom";
+import {Card} from "./card.tsx";
 
 export function CartSidebar() {
     const cartContext = useContext(CartContext)
@@ -10,9 +11,7 @@ export function CartSidebar() {
         <>
             <h3 className="text-base-subtitle font-bold">Cafés selecionados</h3>
 
-            <div className="rounded-tr-2xl rounded-bl-2xl bg-base-card p-10 mt-4">
-
-
+            <div className="rounded-tr-2xl rounded-bl-2xl bg-base-card py-4 px-6 mt-4 mb-6">
                 {cartContext.cart.length === 0 && (
                     <div className="text-base-text mt-3 text-center py-20">
                         <img src={EmptyCart} alt="" className="w-full max-w-[200px] mx-auto" />
@@ -26,6 +25,43 @@ export function CartSidebar() {
                             Adicione itens
                         </NavLink>
                     </div>
+                )}
+
+                {cartContext.cart.length > 0 && (
+                    <>
+                        <div className="divide-base-button divide-y">
+                            {cartContext.cart.map(product => (
+                                <Card
+                                    key={product.id}
+                                    product={product}
+                                />
+                            ))}
+                        </div>
+
+                        <nav className="pt-6 border-t border-base-button">
+                            <ul className="space-y-3">
+                                <li className="text-base-text flex items-center justify-between">
+                                    <span>Total de itens</span>
+                                    <span>R$36,60</span>
+                                </li>
+                                <li className="text-base-text flex items-center justify-between">
+                                    <span>Entrega</span>
+                                    <span>R$36,60</span>
+                                </li>
+                                <li className="text-base-subtitle font-extrabold text-2xl flex items-center justify-between">
+                                    <span>Total</span>
+                                    <span>R$36,60</span>
+                                </li>
+                            </ul>
+                        </nav>
+
+                        <button
+                            className="bg-yellow-dark text-white rounded-md mt-6 py-3 px-6 transition-all
+                            duration-300 hover:bg-yellow-dark-hover w-full"
+                        >
+                            CONFIRMAR PEDIDO
+                        </button>
+                    </>
                 )}
             </div>
         </>
