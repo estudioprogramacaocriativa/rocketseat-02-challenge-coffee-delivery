@@ -24,9 +24,53 @@ export function Cart() {
                             </div>
                         </header>
 
-                        <form>
+                        <form className="mt-8">
+                            <input
+                                className="bg-base-input mt-3 rounded-md p-3"
+                                type="text"
+                                placeholder="CEP"
+                            />
 
+                            <div className="grid grid-cols-3 gap-3 mt-4">
+                                <div className="col-span-2">
+                                    <input
+                                        className="bg-base-input rounded-md p-3 w-full"
+                                        type="text"
+                                        placeholder="Rua"
+                                    />
+                                </div>
+                                <div className="col-span-1">
+                                    <input
+                                        className="bg-base-input rounded-md p-3 w-full"
+                                        type="text"
+                                        placeholder="Número"
+                                    />
+                                </div>
+                            </div>
 
+                            <div className="grid grid-cols-3 gap-3 mt-3">
+                                <input
+                                    className="bg-base-input rounded-md p-3 w-full"
+                                    type="text"
+                                    placeholder="Bairro"
+                                />
+                                <input
+                                    className="bg-base-input rounded-md p-3 w-full"
+                                    type="text"
+                                    placeholder="Cidade"
+                                />
+                                <input
+                                    className="bg-base-input rounded-md p-3 w-full"
+                                    type="text"
+                                    placeholder="UF"
+                                />
+                            </div>
+
+                            <input
+                                className="bg-base-input rounded-md p-3 mt-3 w-full"
+                                type="text"
+                                placeholder="Complemento"
+                            />
                         </form>
                     </div>
 
@@ -43,7 +87,7 @@ export function Cart() {
                             </div>
                         </header>
 
-                        <div className="grid grid-cols-3 gap-3 mt-12">
+                        <div className="grid grid-cols-3 gap-3 mt-8">
                             <div className="flex items-center justify-center bg-base-button rounded-md gap-4 p-4 hover:bg-base-hover transition-all duration-300 cursor-pointer">
                                 <img src={CreditCard} alt=""/>
                                 <span className="text-base-text uppercase text-xs">Cartão de crédito</span>
