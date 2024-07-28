@@ -3,6 +3,7 @@ import {CartContext} from "../../../contexts/CartContext.tsx";
 import EmptyCart from '../../../assets/empty-cart.png'
 import {NavLink} from "react-router-dom";
 import {Card} from "./card.tsx";
+import {maskMoney} from "../../../helpers/maskMoney.ts";
 
 export function CartSidebar() {
     const cartContext = useContext(CartContext)
@@ -42,25 +43,31 @@ export function CartSidebar() {
                             <ul className="space-y-3">
                                 <li className="text-base-text flex items-center justify-between">
                                     <span>Total de itens</span>
-                                    <span>R$36,60</span>
+                                    <span>{maskMoney(cartContext.cartSubTotal())}</span>
                                 </li>
                                 <li className="text-base-text flex items-center justify-between">
                                     <span>Entrega</span>
-                                    <span>R$36,60</span>
+                                    <span>{maskMoney(cartContext.shipment)}</span>
                                 </li>
                                 <li className="text-base-subtitle font-extrabold text-2xl flex items-center justify-between">
                                     <span>Total</span>
-                                    <span>R$36,60</span>
+                                    <span>{maskMoney(cartContext.cartTotal())}</span>
                                 </li>
                             </ul>
                         </nav>
 
                         <button
-                            className="bg-yellow-dark text-white rounded-md mt-6 py-3 px-6 transition-all
-                            duration-300 hover:bg-yellow-dark-hover w-full"
+                            className="bg-yellow text-white rounded-md mt-6 py-3 px-6 transition-all
+                            duration-300 hover:bg-yellow-dark w-full"
                         >
                             CONFIRMAR PEDIDO
                         </button>
+
+                        <div className="w-full text-center mt-3">
+                            <NavLink to="/" className="text-base-label inline-block hover:underline">
+                                Continuar comprando
+                            </NavLink>
+                        </div>
                     </>
                 )}
             </div>

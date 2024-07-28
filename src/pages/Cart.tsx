@@ -3,11 +3,12 @@ import Dollar from '../assets/dolar.svg'
 import CreditCard from '../assets/credit-card.svg'
 import Bank from '../assets/bank.svg'
 import Money from '../assets/money.svg'
+
 import {CartSidebar} from "../components/cart/sidebar";
 
 export function Cart() {
     return (
-        <div className="mt-28 max-w-6xl mx-auto px-5 xl:px-0">
+        <div className="mt-28 max-w-6xl mx-auto px-5 lg:px-0">
             <div className="grid lg:grid-cols-5 gap-6">
                 <article className="lg:col-span-3">
                     <p className="text-base-subtitle font-bold">Complete seu pedido</p>
@@ -26,23 +27,34 @@ export function Cart() {
                         </header>
 
                         <form className="mt-8">
-                            <input
-                                className="bg-base-input mt-3 rounded-md p-3 w-full md:w-auto"
-                                type="text"
-                                placeholder="CEP"
-                            />
+                            <div className="grid md:grid-cols-3 gap-3 mt-4">
+                                <div className="md:col-span-1">
+                                    <input
+                                        className="bg-base-input mt-3 rounded-md p-3 w-full border border-base-button focus:border-yellow focus:outline-0 focus:ring-yellow"
+                                        type="text"
+                                        placeholder="CEP"
+                                    />
+                                </div>
+                                <div className="md:col-span-2">
+                                    <input
+                                        className="bg-base-input mt-3 rounded-md p-3 w-full border border-base-button focus:border-yellow focus:outline-0 focus:ring-yellow"
+                                        type="text"
+                                        placeholder="Responsável no local"
+                                    />
+                                </div>
+                            </div>
 
                             <div className="grid md:grid-cols-3 gap-3 mt-4">
                                 <div className="md:col-span-2">
                                     <input
-                                        className="bg-base-input rounded-md p-3 w-full"
+                                        className="bg-base-input mt-3 rounded-md p-3 w-full border border-base-button focus:border-yellow focus:outline-0 focus:ring-yellow"
                                         type="text"
                                         placeholder="Rua"
                                     />
                                 </div>
                                 <div className="md:col-span-1">
                                     <input
-                                        className="bg-base-input rounded-md p-3 w-full"
+                                        className="bg-base-input mt-3 rounded-md p-3 w-full border border-base-button focus:border-yellow focus:outline-0 focus:ring-yellow"
                                         type="text"
                                         placeholder="Número"
                                     />
@@ -51,25 +63,24 @@ export function Cart() {
 
                             <div className="grid md:grid-cols-3 gap-3 mt-3">
                                 <input
-                                    className="bg-base-input rounded-md p-3 w-full"
+                                    className="bg-base-input mt-3 rounded-md p-3 w-full border border-base-button focus:border-yellow focus:outline-0 focus:ring-yellow"
                                     type="text"
                                     placeholder="Bairro"
                                 />
                                 <input
-                                    className="bg-base-input rounded-md p-3 w-full"
+                                    className="bg-base-input mt-3 rounded-md p-3 w-full border border-base-button focus:border-yellow focus:outline-0 focus:ring-yellow"
                                     type="text"
                                     placeholder="Cidade"
                                 />
                                 <input
-                                    className="bg-base-input rounded-md p-3 w-full"
+                                    className="bg-base-input mt-3 rounded-md p-3 w-full border border-base-button focus:border-yellow focus:outline-0 focus:ring-yellow"
                                     type="text"
                                     placeholder="UF"
                                 />
                             </div>
 
-                            <input
-                                className="bg-base-input rounded-md p-3 mt-3 w-full"
-                                type="text"
+                            <textarea
+                                className="bg-base-input mt-3 rounded-md p-3 w-full border border-base-button focus:border-yellow focus:outline-0 focus:ring-yellow"
                                 placeholder="Complemento"
                             />
                         </form>

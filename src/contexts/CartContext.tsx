@@ -3,12 +3,15 @@ import {Product} from "../components/products";
 
 interface CartContextProps {
     cart: Product[],
+    shipment: number,
     addItemToCart: (item: Product) => void,
     removeItemFromCart: (item: Product) => void,
     increaseQuantity: (item: Product) => void,
     decreaseQuantity: (item: Product) => void,
     updateQuantity: (item: Product) => void,
     getQuantity: (item: Product) => number,
+    cartTotal: () => number,
+    cartSubTotal: () => number,
 }
 
 interface CartContextProviderProps {
@@ -19,6 +22,7 @@ export const CartContext = createContext({} as CartContextProps)
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
     const [cart, setCart] = useState<Product[]>([])
+    const [shipment] = useState(4.99)
 
     const addItemToCart = (item: Product) => {
         setCart((prevState) => {
@@ -90,6 +94,14 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         return 0
     }
 
+    const cartSubTotal = () => {
+        return cart.reduce((acc, state) => {
+            return acc + state.price * state.quantity
+        }, 0)
+    }
+
+    const cartTotal = () => cartSubTotal() + shipment
+
     return (
         <CartContext.Provider value={{
             cart,
@@ -99,6 +111,9 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
             decreaseQuantity,
             updateQuantity,
             getQuantity,
+            cartTotal,
+            cartSubTotal,
+            shipment,
         }}>
             {children}
         </CartContext.Provider>
