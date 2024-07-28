@@ -56,12 +56,13 @@ export function CartSidebar() {
                             </ul>
                         </nav>
 
-                        <button
+                        <NavLink
+                            to="/checkout"
                             className="bg-yellow text-white rounded-md mt-6 py-3 px-6 transition-all
-                            duration-300 hover:bg-yellow-dark w-full"
+                            duration-300 hover:bg-yellow-dark w-full block text-center"
                         >
                             CONFIRMAR PEDIDO
-                        </button>
+                        </NavLink>
 
                         <div className="w-full text-center mt-3">
                             <NavLink to="/" className="text-base-label inline-block hover:underline">

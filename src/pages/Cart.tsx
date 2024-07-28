@@ -1,5 +1,5 @@
 import PinIcon from '../assets/pin.svg'
-import Dollar from '../assets/dolar.svg'
+import Dollar from '../assets/dollar.svg'
 import CreditCard from '../assets/credit-card.svg'
 import Bank from '../assets/bank.svg'
 import Money from '../assets/money.svg'
