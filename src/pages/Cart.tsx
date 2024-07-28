@@ -7,19 +7,19 @@ import {CartSidebar} from "../components/cart/sidebar";
 
 export function Cart() {
     return (
-        <div className="mt-28 max-w-6xl mx-auto">
-            <div className="grid grid-cols-5 gap-6">
-                <article className="col-span-3">
+        <div className="mt-28 max-w-6xl mx-auto px-5 xl:px-0">
+            <div className="grid lg:grid-cols-5 gap-6">
+                <article className="lg:col-span-3">
                     <p className="text-base-subtitle font-bold">Complete seu pedido</p>
 
-                    <div className="bg-base-card p-10 mt-4 rounded-md">
+                    <div className="bg-base-card p-5 sm:p-10 mt-4 rounded-md">
                         <header className="flex items-start gap-3">
                             <img src={PinIcon} alt=""/>
                             <div>
                                 <h3 className="text-base-subtitle -mt-1">
                                     Endereço de entrega
                                 </h3>
-                                <p className="text-base-text text-sm">
+                                <p className="text-base-text text-xs sm:text-sm">
                                     Informe o endereço onde deseja receber seu pedido
                                 </p>
                             </div>
@@ -27,20 +27,20 @@ export function Cart() {
 
                         <form className="mt-8">
                             <input
-                                className="bg-base-input mt-3 rounded-md p-3"
+                                className="bg-base-input mt-3 rounded-md p-3 w-full md:w-auto"
                                 type="text"
                                 placeholder="CEP"
                             />
 
-                            <div className="grid grid-cols-3 gap-3 mt-4">
-                                <div className="col-span-2">
+                            <div className="grid md:grid-cols-3 gap-3 mt-4">
+                                <div className="md:col-span-2">
                                     <input
                                         className="bg-base-input rounded-md p-3 w-full"
                                         type="text"
                                         placeholder="Rua"
                                     />
                                 </div>
-                                <div className="col-span-1">
+                                <div className="md:col-span-1">
                                     <input
                                         className="bg-base-input rounded-md p-3 w-full"
                                         type="text"
@@ -49,7 +49,7 @@ export function Cart() {
                                 </div>
                             </div>
 
-                            <div className="grid grid-cols-3 gap-3 mt-3">
+                            <div className="grid md:grid-cols-3 gap-3 mt-3">
                                 <input
                                     className="bg-base-input rounded-md p-3 w-full"
                                     type="text"
@@ -75,20 +75,20 @@ export function Cart() {
                         </form>
                     </div>
 
-                    <div className="bg-base-card p-10 mt-3 rounded-md">
+                    <div className="bg-base-card p-5 sm:p-10 mt-3 rounded-md">
                         <header className="flex items-start gap-3">
                             <img src={Dollar} alt=""/>
                             <div>
                                 <h3 className="text-base-subtitle -mt-1">
                                     Pagamento
                                 </h3>
-                                <p className="text-base-text text-sm">
+                                <p className="text-base-text text-xs sm:text-sm">
                                     O pagamento é feito na entrega. Escolha a forma que deseja pagar
                                 </p>
                             </div>
                         </header>
 
-                        <div className="grid grid-cols-3 gap-3 mt-8">
+                        <div className="grid sm:grid-cols-3 md:grid-cols-1 xl:grid-cols-3 gap-3 mt-8">
                             <div className="flex items-center justify-center bg-base-button rounded-md gap-4 p-4 hover:bg-base-hover transition-all duration-300 cursor-pointer">
                                 <img src={CreditCard} alt=""/>
                                 <span className="text-base-text uppercase text-xs">Cartão de crédito</span>
@@ -104,7 +104,7 @@ export function Cart() {
                         </div>
                     </div>
                 </article>
-                <article className="col-span-2">
+                <article className="lg:col-span-2">
                     <CartSidebar />
                 </article>
             </div>

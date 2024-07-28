@@ -19,7 +19,7 @@ export function Header() {
                 <div className="flex items-center gap-3">
                     <div className="flex items-center bg-purple-light rounded-md p-3">
                         <MapPin size={22} className="ml-2 mr-1" style={{color: '#8047F8'}}/>
-                        <span className="text-purple-dark">Espirito Santo, ES</span>
+                        <span className="text-purple-dark">Serra, ES</span>
                     </div>
                     <NavLink to="cart" className="bg-yellow-light rounded-md p-3 shopping-cart relative">
                         <span
