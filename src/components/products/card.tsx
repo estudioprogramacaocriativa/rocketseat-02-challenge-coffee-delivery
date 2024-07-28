@@ -1,5 +1,4 @@
 import {ShoppingCart} from "phosphor-react";
-import coffee from '../../assets/expresso-cremoso.svg'
 import {Badge} from "../ui/badge.tsx";
 import {useContext} from "react";
 import {CartContext} from "../../contexts/CartContext.tsx";
@@ -17,10 +16,12 @@ export function Card({  product }: CardProps) {
     return (
         <article className="bg-base-card rounded-md rounded-tr-[60px] rounded-bl-[60px] p-4 flex flex-col gap-3 relative">
             <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                <img src={coffee} alt=""/>
+                <img src={`/public/images/${product.image}`} alt=""/>
             </div>
             <div className="mt-20 flex items-center justify-center gap-1">
-                <Badge>Tradicional</Badge>
+                {product.categories.map(category => (
+                    <Badge key={`category_${category}`}>{category}</Badge>
+                ))}
             </div>
             <header className="text-center mt-4">
                 <h1 className="text-base-title font-bold font-roboto">

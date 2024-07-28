@@ -1,20 +1,23 @@
-import coffee from '../../../assets/expresso-cremoso.svg'
 import {maskMoney} from "../../../helpers/maskMoney.ts";
 import {Product} from "../../products";
 import {Quantity} from "../../products/quantity.tsx";
 import {Remove} from "../../products/remove.tsx";
+import {useContext} from "react";
+import {CartContext} from "../../../contexts/CartContext.tsx";
 
 interface CardProps {
     product: Product
 }
 
 export function Card({  product }: CardProps) {
+    const cartContext = useContext(CartContext)
+
     return (
         <article
             className="bg-base-card p-4 flex items-start justify-between gap-3"
         >
             <div>
-                <img src={coffee} alt="" className="w-full max-w-[70px]" />
+                <img src={`/public/images/${product.image}`} alt="" className="w-full max-w-[70px]" />
             </div>
             <header>
                 <h1 className="text-base-title">
@@ -28,7 +31,7 @@ export function Card({  product }: CardProps) {
 
             <div>
                 <span className="text-base-text font-bold text-sm">
-                    {maskMoney(product.price)}
+                    {maskMoney(cartContext.itemTotal(product))}
                 </span>
             </div>
         </article>

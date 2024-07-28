@@ -12,6 +12,7 @@ interface CartContextProps {
     getQuantity: (item: Product) => number,
     cartTotal: () => number,
     cartSubTotal: () => number,
+    itemTotal: (item: Product) => number,
 }
 
 interface CartContextProviderProps {
@@ -102,6 +103,8 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
 
     const cartTotal = () => cartSubTotal() + shipment
 
+    const itemTotal = (item: Product) => item.price * item.quantity
+
     return (
         <CartContext.Provider value={{
             cart,
@@ -113,6 +116,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
             getQuantity,
             cartTotal,
             cartSubTotal,
+            itemTotal,
             shipment,
         }}>
             {children}
