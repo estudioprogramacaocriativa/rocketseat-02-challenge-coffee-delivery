@@ -13,17 +13,26 @@ interface CartContextProps {
     cartTotal: () => number,
     cartSubTotal: () => number,
     itemTotal: (item: Product) => number,
+    paymentMethod: PaymentMethodType,
+    handlePaymentMethod: (method: PaymentMethodType) => void
 }
 
 interface CartContextProviderProps {
     children: ReactNode,
 }
 
+type PaymentMethodType = 'credit-card' | 'debit-card' | 'money';
+
 export const CartContext = createContext({} as CartContextProps)
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
     const [cart, setCart] = useState<Product[]>([])
     const [shipment] = useState(4.99)
+    const [paymentMethod, setPaymentMethod] = useState<PaymentMethodType>('credit-card')
+
+    const handlePaymentMethod = (method: PaymentMethodType) => {
+        setPaymentMethod(method)
+    }
 
     const addItemToCart = (item: Product) => {
         setCart((prevState) => {
@@ -117,7 +126,9 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
             cartTotal,
             cartSubTotal,
             itemTotal,
+            handlePaymentMethod,
             shipment,
+            paymentMethod,
         }}>
             {children}
         </CartContext.Provider>

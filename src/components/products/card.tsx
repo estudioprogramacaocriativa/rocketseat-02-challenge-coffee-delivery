@@ -14,8 +14,10 @@ export function Card({  product }: CardProps) {
     const cartContext = useContext(CartContext)
 
     return (
-        <article className="bg-base-card rounded-md rounded-tr-[60px] rounded-bl-[60px] p-4 flex flex-col gap-3 relative">
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+        <article
+            className="bg-base-card rounded-md rounded-tr-[60px] rounded-bl-[60px] p-4 flex flex-col gap-3 relative"
+        >
+            <div className="absolute -top-10 left-1/2 -translate-x-1/2">
                 <img src={`/public/images/${product.image}`} alt=""/>
             </div>
             <div className="mt-20 flex items-center justify-center gap-1">

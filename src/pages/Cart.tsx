@@ -1,124 +1,125 @@
 import PinIcon from '../assets/pin.svg'
-import Dollar from '../assets/dollar.svg'
-import CreditCard from '../assets/credit-card.svg'
-import Bank from '../assets/bank.svg'
-import Money from '../assets/money.svg'
 
 import {CartSidebar} from "../components/cart/sidebar";
+import EmptyCart from "../assets/empty-cart.png";
+import {NavLink} from "react-router-dom";
+import {CartContext} from "../contexts/CartContext.tsx";
+import {useContext} from "react";
+import {Payment} from "../components/cart/sidebar/payment.tsx";
 
 export function Cart() {
+    const cartContext = useContext(CartContext)
+
     return (
         <div className="mt-28 max-w-6xl mx-auto px-5 lg:px-0">
-            <div className="grid lg:grid-cols-5 gap-6">
-                <article className="lg:col-span-3">
-                    <p className="text-base-subtitle font-bold">Complete seu pedido</p>
+            {cartContext.cart.length === 0 && (
+                <div className="text-base-text mt-3 text-center py-20">
+                    <img src={EmptyCart} alt="" className="w-full max-w-[200px] mx-auto" />
+                    <p className="font-bold text-base-label">Seu carrinho está vazio!</p>
 
-                    <div className="bg-base-card p-5 sm:p-10 mt-4 rounded-md">
-                        <header className="flex items-start gap-3">
-                            <img src={PinIcon} alt=""/>
-                            <div>
-                                <h3 className="text-base-subtitle -mt-1">
-                                    Endereço de entrega
-                                </h3>
-                                <p className="text-base-text text-xs sm:text-sm">
-                                    Informe o endereço onde deseja receber seu pedido
-                                </p>
-                            </div>
-                        </header>
+                    <NavLink
+                        to="/"
+                        className="inline-block mt-6 bg-base-label text-white rounded-md py-3 px-6 transition-all
+                            duration-300 hover:bg-base-text"
+                    >
+                        Adicione itens
+                    </NavLink>
+                </div>
+            )}
 
-                        <form className="mt-8">
-                            <div className="grid md:grid-cols-3 gap-3 mt-4">
-                                <div className="md:col-span-1">
+            {cartContext.cart.length > 0 && (
+                <div className="grid lg:grid-cols-5 gap-6">
+                    <article className="lg:col-span-3">
+                        <p className="text-base-subtitle font-bold">Complete seu pedido</p>
+
+                        <div className="bg-base-card p-5 sm:p-10 mt-4 rounded-md">
+                            <header className="flex items-start gap-3">
+                                <img src={PinIcon} alt=""/>
+                                <div>
+                                    <h3 className="text-base-subtitle -mt-1">
+                                        Endereço de entrega
+                                    </h3>
+                                    <p className="text-base-text text-xs sm:text-sm">
+                                        Informe o endereço onde deseja receber seu pedido
+                                    </p>
+                                </div>
+                            </header>
+
+                            <form className="mt-8">
+                                <div className="grid md:grid-cols-3 gap-3 mt-4">
+                                    <div className="md:col-span-1">
+                                        <input
+                                            className="bg-base-input mt-3 rounded-md p-3 w-full border border-base-button
+                                            focus:border-yellow focus:outline-0 focus:ring-yellow"
+                                            type="text"
+                                            placeholder="CEP"
+                                        />
+                                    </div>
+                                    <div className="md:col-span-2">
+                                        <input
+                                            className="bg-base-input mt-3 rounded-md p-3 w-full border border-base-button
+                                            focus:border-yellow focus:outline-0 focus:ring-yellow"
+                                            type="text"
+                                            placeholder="Responsável no local"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="grid md:grid-cols-3 gap-3 mt-4">
+                                    <div className="md:col-span-2">
+                                        <input
+                                            className="bg-base-input mt-3 rounded-md p-3 w-full border border-base-button
+                                            focus:border-yellow focus:outline-0 focus:ring-yellow"
+                                            type="text"
+                                            placeholder="Rua"
+                                        />
+                                    </div>
+                                    <div className="md:col-span-1">
+                                        <input
+                                            className="bg-base-input mt-3 rounded-md p-3 w-full border border-base-button
+                                            focus:border-yellow focus:outline-0 focus:ring-yellow"
+                                            type="text"
+                                            placeholder="Número"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="grid md:grid-cols-3 gap-3 mt-3">
                                     <input
-                                        className="bg-base-input mt-3 rounded-md p-3 w-full border border-base-button focus:border-yellow focus:outline-0 focus:ring-yellow"
+                                        className="bg-base-input mt-3 rounded-md p-3 w-full border border-base-button
+                                        focus:border-yellow focus:outline-0 focus:ring-yellow"
                                         type="text"
-                                        placeholder="CEP"
+                                        placeholder="Bairro"
+                                    />
+                                    <input
+                                        className="bg-base-input mt-3 rounded-md p-3 w-full border border-base-button
+                                        focus:border-yellow focus:outline-0 focus:ring-yellow"
+                                        type="text"
+                                        placeholder="Cidade"
+                                    />
+                                    <input
+                                        className="bg-base-input mt-3 rounded-md p-3 w-full border border-base-button
+                                        focus:border-yellow focus:outline-0 focus:ring-yellow"
+                                        type="text"
+                                        placeholder="UF"
                                     />
                                 </div>
-                                <div className="md:col-span-2">
-                                    <input
-                                        className="bg-base-input mt-3 rounded-md p-3 w-full border border-base-button focus:border-yellow focus:outline-0 focus:ring-yellow"
-                                        type="text"
-                                        placeholder="Responsável no local"
-                                    />
-                                </div>
-                            </div>
 
-                            <div className="grid md:grid-cols-3 gap-3 mt-4">
-                                <div className="md:col-span-2">
-                                    <input
-                                        className="bg-base-input mt-3 rounded-md p-3 w-full border border-base-button focus:border-yellow focus:outline-0 focus:ring-yellow"
-                                        type="text"
-                                        placeholder="Rua"
-                                    />
-                                </div>
-                                <div className="md:col-span-1">
-                                    <input
-                                        className="bg-base-input mt-3 rounded-md p-3 w-full border border-base-button focus:border-yellow focus:outline-0 focus:ring-yellow"
-                                        type="text"
-                                        placeholder="Número"
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="grid md:grid-cols-3 gap-3 mt-3">
-                                <input
-                                    className="bg-base-input mt-3 rounded-md p-3 w-full border border-base-button focus:border-yellow focus:outline-0 focus:ring-yellow"
-                                    type="text"
-                                    placeholder="Bairro"
+                                <textarea
+                                    className="bg-base-input mt-3 rounded-md p-3 w-full border border-base-button
+                                    focus:border-yellow focus:outline-0 focus:ring-yellow"
+                                    placeholder="Complemento"
                                 />
-                                <input
-                                    className="bg-base-input mt-3 rounded-md p-3 w-full border border-base-button focus:border-yellow focus:outline-0 focus:ring-yellow"
-                                    type="text"
-                                    placeholder="Cidade"
-                                />
-                                <input
-                                    className="bg-base-input mt-3 rounded-md p-3 w-full border border-base-button focus:border-yellow focus:outline-0 focus:ring-yellow"
-                                    type="text"
-                                    placeholder="UF"
-                                />
-                            </div>
-
-                            <textarea
-                                className="bg-base-input mt-3 rounded-md p-3 w-full border border-base-button focus:border-yellow focus:outline-0 focus:ring-yellow"
-                                placeholder="Complemento"
-                            />
-                        </form>
-                    </div>
-
-                    <div className="bg-base-card p-5 sm:p-10 mt-3 rounded-md">
-                        <header className="flex items-start gap-3">
-                            <img src={Dollar} alt=""/>
-                            <div>
-                                <h3 className="text-base-subtitle -mt-1">
-                                    Pagamento
-                                </h3>
-                                <p className="text-base-text text-xs sm:text-sm">
-                                    O pagamento é feito na entrega. Escolha a forma que deseja pagar
-                                </p>
-                            </div>
-                        </header>
-
-                        <div className="grid sm:grid-cols-3 md:grid-cols-1 xl:grid-cols-3 gap-3 mt-8">
-                            <div className="flex items-center justify-center bg-base-button rounded-md gap-4 p-4 hover:bg-base-hover transition-all duration-300 cursor-pointer">
-                                <img src={CreditCard} alt=""/>
-                                <span className="text-base-text uppercase text-xs">Cartão de crédito</span>
-                            </div>
-                            <div className="flex items-center justify-center bg-base-button rounded-md gap-4 p-4 hover:bg-base-hover transition-all duration-300 cursor-pointer">
-                                <img src={Bank} alt=""/>
-                                <span className="text-base-text uppercase text-xs">Cartão de débito</span>
-                            </div>
-                            <div className="flex items-center justify-center bg-base-button rounded-md gap-4 p-4 hover:bg-base-hover transition-all duration-300 cursor-pointer">
-                                <img src={Money} alt=""/>
-                                <span className="text-base-text uppercase text-xs">Dinheiro</span>
-                            </div>
+                            </form>
                         </div>
-                    </div>
-                </article>
-                <article className="lg:col-span-2">
-                    <CartSidebar />
-                </article>
-            </div>
+
+                        <Payment />
+                    </article>
+                    <article className="lg:col-span-2">
+                        <CartSidebar />
+                    </article>
+                </div>
+            )}
         </div>
     )
 }

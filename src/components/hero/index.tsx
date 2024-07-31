@@ -12,7 +12,10 @@ export function Hero() {
                 backgroundPosition: 'center center',
             }}
         >
-            <div className="max-w-6xl flex-col-reverse lg:flex-row m-auto flex items-center justify-between gap-14 w-full mt-16 py-16 px-4">
+            <div
+                className="max-w-6xl flex-col-reverse lg:flex-row m-auto flex items-center justify-between gap-14
+                w-full mt-16 py-16 px-4"
+            >
                 <div>
                     <header>
                         <h1 className="text-xl sm:text-4xl font-bold text-base-title font-roboto">

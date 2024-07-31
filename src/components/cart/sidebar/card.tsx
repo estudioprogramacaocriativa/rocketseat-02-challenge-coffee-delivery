@@ -17,7 +17,7 @@ export function Card({  product }: CardProps) {
             className="bg-base-card p-4 flex items-start justify-between gap-3"
         >
             <div>
-                <img src={`/public/images/${product.image}`} alt="" className="w-full max-w-[70px]" />
+                <img src={`/public/images/${product.image}`} alt={product.name} className="w-full max-w-[70px]" />
             </div>
             <header>
                 <h1 className="text-base-title">

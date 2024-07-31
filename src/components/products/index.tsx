@@ -21,7 +21,7 @@ export function Products() {
                 Nossos Cafés
             </h1>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-14">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 gap-y-16 mt-14">
                 {productsList.map((product) => {
                    return <Card
                        key={product.id}
