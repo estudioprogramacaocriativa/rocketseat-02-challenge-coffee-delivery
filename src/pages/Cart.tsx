@@ -1,11 +1,12 @@
-import PinIcon from '../assets/pin.svg'
-
 import {CartSidebar} from "../components/cart/sidebar";
 import EmptyCart from "../assets/empty-cart.png";
 import {NavLink} from "react-router-dom";
 import {CartContext} from "../contexts/CartContext.tsx";
 import {useContext} from "react";
 import {Payment} from "../components/cart/sidebar/payment.tsx";
+
+import PinIcon from '../assets/pin.svg'
+import {Address} from "../components/cart/sidebar/address.tsx";
 
 export function Cart() {
     const cartContext = useContext(CartContext)
@@ -20,7 +21,7 @@ export function Cart() {
                     <NavLink
                         to="/"
                         className="inline-block mt-6 bg-base-label text-white rounded-md py-3 px-6 transition-all
-                            duration-300 hover:bg-base-text"
+                        duration-300 hover:bg-base-text"
                     >
                         Adicione itens
                     </NavLink>
@@ -45,72 +46,7 @@ export function Cart() {
                                 </div>
                             </header>
 
-                            <form className="mt-8">
-                                <div className="grid md:grid-cols-3 gap-3 mt-4">
-                                    <div className="md:col-span-1">
-                                        <input
-                                            className="bg-base-input mt-3 rounded-md p-3 w-full border border-base-button
-                                            focus:border-yellow focus:outline-0 focus:ring-yellow"
-                                            type="text"
-                                            placeholder="CEP"
-                                        />
-                                    </div>
-                                    <div className="md:col-span-2">
-                                        <input
-                                            className="bg-base-input mt-3 rounded-md p-3 w-full border border-base-button
-                                            focus:border-yellow focus:outline-0 focus:ring-yellow"
-                                            type="text"
-                                            placeholder="Responsável no local"
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className="grid md:grid-cols-3 gap-3 mt-4">
-                                    <div className="md:col-span-2">
-                                        <input
-                                            className="bg-base-input mt-3 rounded-md p-3 w-full border border-base-button
-                                            focus:border-yellow focus:outline-0 focus:ring-yellow"
-                                            type="text"
-                                            placeholder="Rua"
-                                        />
-                                    </div>
-                                    <div className="md:col-span-1">
-                                        <input
-                                            className="bg-base-input mt-3 rounded-md p-3 w-full border border-base-button
-                                            focus:border-yellow focus:outline-0 focus:ring-yellow"
-                                            type="text"
-                                            placeholder="Número"
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className="grid md:grid-cols-3 gap-3 mt-3">
-                                    <input
-                                        className="bg-base-input mt-3 rounded-md p-3 w-full border border-base-button
-                                        focus:border-yellow focus:outline-0 focus:ring-yellow"
-                                        type="text"
-                                        placeholder="Bairro"
-                                    />
-                                    <input
-                                        className="bg-base-input mt-3 rounded-md p-3 w-full border border-base-button
-                                        focus:border-yellow focus:outline-0 focus:ring-yellow"
-                                        type="text"
-                                        placeholder="Cidade"
-                                    />
-                                    <input
-                                        className="bg-base-input mt-3 rounded-md p-3 w-full border border-base-button
-                                        focus:border-yellow focus:outline-0 focus:ring-yellow"
-                                        type="text"
-                                        placeholder="UF"
-                                    />
-                                </div>
-
-                                <textarea
-                                    className="bg-base-input mt-3 rounded-md p-3 w-full border border-base-button
-                                    focus:border-yellow focus:outline-0 focus:ring-yellow"
-                                    placeholder="Complemento"
-                                />
-                            </form>
+                            <Address />
                         </div>
 
                         <Payment />

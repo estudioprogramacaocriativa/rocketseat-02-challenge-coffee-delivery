@@ -2,12 +2,18 @@ import checkoutImage from '../assets/order-done.svg'
 import pin from '../assets/pin-white.svg'
 import clock from '../assets/clock.svg'
 import dollar from '../assets/dollar-white.svg'
-import {useContext} from "react";
+import {useContext, useEffect} from "react";
 import {CartContext} from "../contexts/CartContext.tsx";
 import {parsePaymentMethod} from "../helpers/parsePaymentMethod.ts";
+import {useNavigate} from "react-router-dom";
 
 export function CheckoutFinished() {
     const cartContext = useContext(CartContext)
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        !cartContext.cartIsValid() && navigate('/cart')
+    })
 
     return (
         <div className="mt-36 max-w-6xl mx-auto px-5 lg:px-0">
@@ -32,8 +38,9 @@ export function CheckoutFinished() {
                                     <img className="w-4 h-4 text-white" src={pin} alt="Endereço de entrega"/>
                                 </div>
                                 <div className="text-base-text text-base">
-                                    <p>Entrega em <span className="font-bold">Rua C quatro, 420</span></p>
-                                    <p>Conjunto Carapina 1 - Serra, ES</p>
+                                    <p>Entregar para <span className="font-bold">{cartContext.address.name}</span></p>
+                                    <p>Entrega em <span className="font-bold">{cartContext.address.street}, {cartContext.address.number}</span></p>
+                                    <p>{cartContext.address.neighborhood} - {cartContext.address.city}, {cartContext.address.state}</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-4">
