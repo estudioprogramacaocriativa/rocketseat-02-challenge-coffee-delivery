@@ -102,8 +102,6 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         const existingProduct = cart.filter(itemCart => itemCart.id === item.id)
 
         if (existingProduct.length === 0) {
-            item.quantity = item.quantity + 1 === 1 ? 1 : 0
-
             addItemToCart(item)
 
             return
@@ -121,7 +119,9 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
             const findProduct = prevState.find(state => state.id === item.id)
 
             if (findProduct && findProduct.quantity - 1 < 0) {
-                return prevState.filter(state => state.id !== item.id)
+                removeItemFromCart(item)
+
+                return prevState
             }
 
             return prevState.map(state => {

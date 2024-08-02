@@ -22,17 +22,19 @@ export function CheckoutFinished() {
                     <h1 className="text-yellow-dark font-bold font-baloo text-xl md:text-3xl">
                         Uhu! Pedido confirmado
                     </h1>
-                    <p className="text-base-subtitle text-xs md:text-lg">
+                    <p className="text-base-subtitle mt-2 text-xs md:text-xl">
                         Agora e só aguardar que logo o café chega ate você.
                     </p>
                 </header>
 
                 <div className="grid md:grid-cols-2 gap-6 md:gap-20 mt-6">
                     <div
-                        className="h-full w-full rounded-md bg-gradient-to-r from-background via-base-text to-yellow
-                        rounded-tr-2xl rounded-bl-2xl border"
+                        className="h-full w-full bg-gradient-to-r from-yellow via-purple to-purple-dark rounded-tr-[35px]
+                        rounded-bl-[35px] p-[1px]"
                     >
-                        <div className="h-full w-full bg-white rounded-md p-10 space-y-5">
+                        <div
+                            className="w-full h-full rounded-tr-[35px] rounded-bl-[35px] bg-white space-y-5 flex
+                            justify-center flex-col px-10">
                             <div className="flex items-center gap-4">
                                 <div className="w-8 h-8 flex items-center justify-center rounded-full bg-purple">
                                     <img className="w-4 h-4 text-white" src={pin} alt="Endereço de entrega"/>
@@ -41,6 +43,7 @@ export function CheckoutFinished() {
                                     <p>Entregar para <span className="font-bold">{cartContext.address.name}</span></p>
                                     <p>Entrega em <span className="font-bold">{cartContext.address.street}, {cartContext.address.number}</span></p>
                                     <p>{cartContext.address.neighborhood} - {cartContext.address.city}, {cartContext.address.state}</p>
+                                    <p className="text-sm text-purple-dark mt-1">{cartContext.address.complement}</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-4">
